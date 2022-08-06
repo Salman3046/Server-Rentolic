@@ -107,7 +107,7 @@ router.get("/search/:lender_id", (req, res) => {
         .catch(error => {
             res.status(500).json({ message: "Unable to Perform Action" })
             console.log(error);
-        });
+        }); 
 })
 
 router.get('/', function (req, res, next) {

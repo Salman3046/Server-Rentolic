@@ -111,7 +111,7 @@ router.get("/search/:lender_id", (req, res) => {
 })
 
 router.get('/', function (req, res, next) {
-    var sql = 'SELECT products.*, (SELECT TRUNCATE((SUM(review.rating)/COUNT(review.product_id)), 1) from review WHERE products.id=review.product_id GROUP BY review.product_id) AS avg_rating , city.city_name, statusssss.status_name, category.category_name, sub_category.name FROM products JOIN city, statusssss, sub_category, category, review WHERE city.id = products.city AND statusssss.id = products.status AND category.id = products.category_id AND sub_category.id = products.sub_category_id GROUP BY products.id order BY id DESC;';
+    var sql = 'SELECT products.*, (SELECT TRUNCATE((SUM(review.rating)/COUNT(review.product_id)), 1) from review WHERE products.id=review.product_id GROUP BY review.product_id) AS avg_rating, product_status.is_approved_status_name, product_status.color, city.city_name, statusssss.status_name, category.category_name, product_status.text_color ,sub_category.name FROM products JOIN city, statusssss, sub_category, product_status, category, review WHERE city.id = products.city AND statusssss.id = products.status AND category.id = products.category_id AND sub_category.id = products.sub_category_id AND product_status.is_approved_status = products.is_approved GROUP BY products.id order BY id DESC;';
     db.query(sql, function (err, data, fields) {
         if (err) throw err;
         res.json(data)

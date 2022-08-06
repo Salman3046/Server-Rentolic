@@ -9,7 +9,7 @@ module.exports = {
       host : 'localhost',
       user : 'root',
       password : '',
-      database : 'zennit_rentolic'
+      database : 'rentolic'
     },
   },
 

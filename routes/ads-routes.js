@@ -27,7 +27,7 @@ router.post("/", (req, res) => {
 // })
 
 router.get('/', function (req, res, next) {
-    var sql = 'SELECT ads.*, statusssss.status_name FROM ads JOIN statusssss ON statusssss.status_id = ads.status;';
+    var sql = 'SELECT ads.*, statusssss.status_name, category.category_name FROM ads JOIN statusssss, category WHERE statusssss.status_id = ads.status AND category.id = ads.subtitle;';
     db.query(sql, function (err, data, fields) {
         if (err) throw err;
         res.json(data)

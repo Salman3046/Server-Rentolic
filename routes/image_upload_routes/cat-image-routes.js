@@ -23,7 +23,7 @@ const upload = multer({
 const router = express.Router();
 const tripTypes = upload.fields([
   { name: 'image', maxCount: 10 },
-  { name: 'icon', maxCount: 10 },
+  // { name: 'icon', maxCount: 10 },
   // icon
   { name: 'icon1', maxCount: 10 },
   { name: 'icon2', maxCount: 10 },
@@ -36,7 +36,7 @@ router.post("/", tripTypes, function (req, res, next) {
   return res.json({
     success: 1,
     active_url: `/image/${req.files.image[0].filename}`,
-    inactive_url: `/image/${req.files.icon[0].filename}`,
+    // inactive_url: `/image/${req.files.icon[0].filename}`,
     //  ICON
     iconClass1: `/image/${req.files.icon1[0].filename}`,
     iconClass2: `/image/${req.files.icon2[0].filename}`,

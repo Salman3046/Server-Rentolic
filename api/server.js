@@ -33,6 +33,7 @@ const declineProduct = require('../routes/decline-product-routes');
 const cityPending = require('../routes/city-pending-routes');
 const reviewAdmin = require('../routes/review-admin-routes');
 const starReview = require('../routes/star-review-routes');
+const subCategoryAds = require('../routes/sub-category-ads-routes');
 // forgot password 🌹
 const forgotPassword = require('../routes/forgot-password-routes');
 
@@ -46,6 +47,7 @@ const catImage = require('../routes/image_upload_routes/cat-image-routes');
 const sliderImage = require('../routes/image_upload_routes/slider-image-routes');
 const productImage = require('../routes/image_upload_routes/product-image-routes');
 const profileImage = require('../routes/image_upload_routes/profile-image-routes');
+const adSubCategoryImage = require('../routes/image_upload_routes/ads-sub-category-routes');
 
 
 
@@ -100,6 +102,7 @@ server.use("/api/admin/decline-product", declineProduct);
 server.use("/api/admin/city-pending", cityPending);
 server.use("/api/admin/review-admin", reviewAdmin);
 server.use("/api/admin/star-review", starReview);
+server.use("/api/admin/sub_category_ads", subCategoryAds);
 // forgot password api 🌹
 server.use("/api/forgot-password", forgotPassword);
 
@@ -113,6 +116,7 @@ server.use("/admin/category", catImage);
 server.use("/admin/slider", sliderImage);
 server.use("/admin/product", productImage);
 server.use("/admin/profile", profileImage);
+server.use("/admin/adSubCategorys", adSubCategoryImage);
 
 
 
